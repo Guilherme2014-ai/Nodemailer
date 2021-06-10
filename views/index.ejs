@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="/css/css.css">
+    <title>Spammer</title>
+</head>
+<body>
+
+      <input type="hidden" name="repeat" id="repeat" value="<%= repeat %>">
+
+      <div class="container">
+
+
+          <h1><strong>Spammer</strong></h1><hr><br>
+          <div class="card">
+              <div class="card-body">
+                  <form action="/" method="POST">
+                        <h3>Usuário</h3>
+                        <input type="text" name="subject" id="subject" class="form form-control" placeholder="Nome de Usuario" required>
+                        <br>
+                        <input type="email" name="fromEmail" id="fromEmail" class="form form-control" placeholder="Email Que Sera Usado Para o Spam" required>
+                        <br>
+                        <input type="password" name="password" id="password" class="form form-control" placeholder="Senha do email aqui" required>
+                        <br>
+
+                        <hr>
+                        
+                        <br>
+                        <h3>Destinatário</h3>
+                        <input type="text" name="ToEmail" id="ToEmail" class="form form-control" placeholder="Emails Que Recebera o Spam, EX: email@gmail.com onemore@yahoo.com" required>
+                        <br>
+                        <input type="number" name="repeat" id="repeat" placeholder="Quantas vezes ?" class="form form-control" minlength="1" required>
+                        <br>
+
+                        <hr>
+
+                        <br>
+                        <h3>Conteúdo</h3>
+                        <input type="text" name="title" id="title" class="form form-control" placeholder="Titulo Aqui" required>
+                        <br>
+                        <input type="text" name="img" id="img" placeholder="Link da Imagem" class="form form-control" required>
+                        <br>
+                        <textarea name="content" id="content" cols="30" rows="9" class="form form-control" placeholder="Conteudo Aqui"></textarea>
+                        <br>
+                        <button class="btn btn-outline-success">Começar Spam</button><hr>
+                  </form>
+              </div>
+
+              <div id="card"></div>
+              
+          </div>
+
+
+      </div><br>
+</body>
+<script>
+
+    var card = document.getElementById("card")
+    var documentRepeat = document.getElementById("repeat")
+    var Repeat = documentRepeat.value
+
+    if(Repeat == 0){}else{
+        card.innerHTML =
+        `<div style="padding: 1%;"><p><strong>Enviando Emails...</strong></p>
+            <div class="loader"></div>
+        </div>`
+
+        setTimeout(() => {
+            card.innerHTML = ''
+        }, Repeat * 400)
+    }
+    
+</script>
+<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+</html>
